@@ -1,0 +1,55 @@
+---
+layout: base.njk
+---
+<header class="hero">
+  <h1>{{ site.name }}</h1>
+  <p class="title">{{ site.title }}</p>
+  <p class="bio">{{ site.bio }}</p>
+  <ul class="links">
+    {%- for link in site.links %}
+    <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+    {%- endfor %}
+    {%- if site.orcid %}
+    <li><a href="https://orcid.org/{{ site.orcid }}">ORCID</a></li>
+    {%- endif %}
+    {%- if site.email and site.email.user and site.email.domain %}
+    <li><a class="email-link" data-u="{{ site.email.user | b64 }}" data-d="{{ site.email.domain | b64 }}">Email</a></li>
+    {%- endif %}
+  </ul>
+</header>
+
+<section>
+  <h2>CV</h2>
+  <ul class="cv">
+    {%- for item in site.cv %}
+    <li>
+      <span class="period">{{ item.period }}</span>
+      <span class="role">{{ item.role }}</span>
+      <span class="org">{{ item.org }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Publications</h2>
+  <ul class="publications">
+    {%- for pub in site.publications %}
+    <li>
+      <a href="{{ pub.url }}">{{ pub.title }}</a>
+      <span class="venue">{{ pub.venue }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<script>
+  // The address is never in the HTML: parts are base64-encoded in data
+  // attributes and only joined with "@" here, in the browser. Harvesters that
+  // scrape raw HTML (including [at]/(at) patterns) find nothing usable.
+  document.querySelectorAll("a.email-link").forEach(function (a) {
+    var addr = atob(a.dataset.u) + "@" + atob(a.dataset.d);
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+</script>

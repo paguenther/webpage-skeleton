@@ -1,0 +1,28 @@
+{
+  "name": "Jane Doe",
+  "title": "Researcher in Example Studies",
+  "bio": "Short bio goes here: a couple of sentences about your background, current role, and interests.",
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/janedoe" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/janedoe" }
+  ],
+  "orcid": "0000-0002-1825-0097",
+  "email": { "user": "jane", "domain": "example.com" },
+  "cv": [
+    { "period": "2022–present", "role": "Postdoctoral Researcher", "org": "Example University" },
+    { "period": "2018–2022", "role": "PhD, Example Field", "org": "Example Institute" },
+    { "period": "2014–2018", "role": "BSc, Example Subject", "org": "Example College" }
+  ],
+  "publications": [
+    {
+      "title": "An Example Paper Title",
+      "venue": "Journal of Examples, 2023",
+      "url": "https://doi.org/10.0000/example"
+    },
+    {
+      "title": "Another Example Paper",
+      "venue": "Proceedings of the Example Conference, 2021",
+      "url": "https://doi.org/10.0000/example2"
+    }
+  ]
+}
